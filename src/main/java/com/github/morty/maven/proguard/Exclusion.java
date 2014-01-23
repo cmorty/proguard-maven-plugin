@@ -18,7 +18,7 @@
  * @author vlads
  * @version $Id$
  */
-package com.github.wvengen.maven.proguard;
+package com.github.morty.maven.proguard;
 
 public class Exclusion extends ArtifactFilter {
 

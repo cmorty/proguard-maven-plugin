@@ -18,12 +18,21 @@
  * @author vlads
  * @version $Id$
  */
-package com.github.wvengen.maven.proguard;
+package com.github.morty.maven.proguard;
 
-import java.util.List;
+import org.apache.maven.artifact.Artifact;
 
-public class Assembly {
+public class ArtifactFilter {
 
-	protected List inclusions;
+	protected String groupId;
 
+	protected String artifactId;
+
+	protected String classifier;
+
+	public boolean match(Artifact artifact) {
+		return (artifact.getArtifactId().equals(this.artifactId) && artifact.getGroupId().equals(this.groupId) && (((this.classifier == null) && (artifact
+				.getClassifier() == null)) || ((this.classifier != null) && this.classifier.equals(artifact
+				.getClassifier()))));
+	}
 }
